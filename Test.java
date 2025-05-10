@@ -1,16 +1,25 @@
-package Actividad1;
+package Actividad2;
+
+import Actividad1.ExceptionIsEmpty;
 
 public class Test {
     public static void main(String[] args) {
         try {
-            Stack<Integer> pila = new StackArray<>(5);
-            pila.push(10);
-            pila.push(20);
-            pila.push(30);
-            System.out.println(pila); // 30 20 10
-            System.out.println("Top: " + pila.top());
-            pila.pop();
-            System.out.println(pila); // 20 10
+            Queue<Integer> cola = new QueueLink<>();
+
+            System.out.println("¿Está vacía?: " + cola.isEmpty());
+
+            cola.enqueue(10);
+            cola.enqueue(20);
+            cola.enqueue(30);
+
+            System.out.println("Cola actual: " + cola);
+            System.out.println("Frente: " + cola.front());
+            System.out.println("Final: " + cola.back());
+
+            System.out.println("Eliminando: " + cola.dequeue());
+            System.out.println("Cola después de eliminar: " + cola);
+
         } catch (ExceptionIsEmpty e) {
             System.out.println("Error: " + e.getMessage());
         }
